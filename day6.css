@@ -1,0 +1,106 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 3000px;
+}
+.arrow-l {
+    position: absolute;
+    left: -1px;
+    top: 200px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 0 8px 8px 0;
+    z-index: 2;
+    background-color: black;
+    opacity: 0.8;
+    color: white;
+    border: 2px solid azure;
+    cursor: pointer;
+    display: none;
+}
+
+.arrow-r {
+    position: absolute;
+    right: -1px;
+    top: 200px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    text-align: center;
+    border-radius: 8px 0 0 8px;
+    z-index: 2;
+    background-color: black;
+    opacity: 0.8;
+    color: white;
+    border: 2px solid azure;
+    cursor: pointer;
+    display: none;
+}
+
+.focus {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.pic {
+    position: absolute;
+    width: 600%;
+}
+
+.pic li img {
+    width: 500px;
+    float: left;
+}
+
+.circle {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+}
+
+.circle li {
+    width: 15px;
+    height: 15px;
+    margin-left: 20px;
+    border: 2px solid black;
+    background-color: white;
+    float: left;
+    cursor: pointer;
+}
+
+.circle li:hover {
+    background-color: orangered;
+}
+
+.circle .selected {
+    background-color: orange;
+}
+
+.move {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+}
+.go-back {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    display: block;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    color: white;
+    background-color: darkblue;
+    display: none;
+}

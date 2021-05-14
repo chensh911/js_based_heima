@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        ul, ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: black;
+        }
+
+        ul {
+            width: 100px;
+            text-align: center;
+        }
+
+        ul li {
+            height: 40px;
+            line-height: 40px;
+        }
+
+        /*ul li:hover {*/
+        /*    background-color: #eee;*/
+        /*}*/
+
+        ol {
+            position: absolute;
+            width: 100px;
+            text-align: center;
+            display: none;
+        }
+
+        ol li {
+            border: 2px solid orange;
+            border-top: none;
+            background-color: yellow;
+        }
+
+        ol li:first-child {
+            border-top: 2px solid orange;
+        }
+
+        .piano {
+            width: 600px;
+            margin-top: 200px;
+        }
+
+        .piano li {
+            float: left;
+            width: 50px;
+            background-color: pink;
+        }
+
+        .piano .selected {
+            width: 200px;
+            background-color: darkcyan;
+        }
+
+        .piano div {
+            width: 50px;
+            height: 100%;
+            background-color: orange;
+        }
+
+        .piano .selected div {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#">新浪微博</a></li>
+</ul>
+
+<ol>
+    <li><a href="#">点击关注</a></li>
+    <li><a href="#">点击关注</a></li>
+    <li><a href="#">点击关注</a></li>
+</ol>
+<script>
+    $(function () {
+        $('ul li').hover(function () {
+            $('ol').stop().slideToggle(200);
+        });
+    });
+</script>
+
+<ul class="piano">
+    <li class="selected">
+        <div>1</div>
+    </li>
+    <li>
+        <div>2</div>
+    </li>
+    <li>
+        <div>3</div>
+    </li>
+    <li>
+        <div>4</div>
+    </li>
+    <li>
+        <div>5</div>
+    </li>
+</ul>
+<script>
+    $('.piano li').mouseover(function () {
+        $(this).stop().animate({
+            backgroundColor: 'darkcyan',
+            width: 200
+        }).children().stop().fadeOut()
+        $(this).siblings().stop().animate({
+            width:50
+        }).children().stop().fadeIn()
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .back {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            background-color: pink;
+            height: 45px;
+            width: 45px;
+            text-align: center;
+            padding: 5px;
+            display: none;
+        }
+        .demo-03 ul li {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="demo-01">
+    全选框制作<br>
+    <input type="checkbox" name="checkAll" id="checkAll" class="checkAll">
+    <label for="checkAll">全选</label><br>
+
+    <ul>
+        <li><input type="checkbox" class="j-check"></li>
+        <li><input type="checkbox" class="j-check"></li>
+        <li><input type="checkbox" class="j-check"></li>
+    </ul>
+
+    <input type="checkbox" name="checkAll2" id="checkAll2" class="checkAll">
+    <label for="checkAll2">全选</label>
+
+    <script>
+        $('.checkAll').change(function () {
+            $('.checkAll, .j-check').prop('checked', $(this).prop('checked'))
+        })
+
+        $('.j-check').change(function () {
+            if ($('.j-check:checked').length === $('.j-check').length) {
+                $('.checkAll').prop('checked', true);
+            } else {
+                $('.checkAll').prop('checked', false);
+            }
+        })
+    </script>
+</div>
+<div class="demo-02">
+    <div class="back">返回顶部</div>
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() >= $('.checkAll:eq(1)').offset().top) {
+                $(".back").fadeIn();
+            } else {
+                $('.back').fadeOut();
+            }
+        });
+        $('.back').click(function () {
+            $("body, html").animate({
+                scrollTop: 0
+            })
+        });
+    </script>
+</div>
+<div class="demo-03">
+    发布动态<br>
+    <textarea></textarea>
+    <button>提交</button>
+    <ul></ul>
+
+    <script>
+        $('.demo-03 button').prop('disabled', 'true');
+        $('.demo-03 textarea').keyup(function () {
+            if ($(this).val() === '') {
+                $('.demo-03 button').prop('disabled', true);
+            } else {
+                $('.demo-03 button').prop('disabled', false);
+            }
+        })
+        $('.demo-03 button').click(function () {
+            if ($('.demo-03 textarea').val() !== '') {
+                var li = $('<li></li>');
+                $('.demo-03 ul').prepend(li);
+                li.html($('.demo-03 textarea').val() + '<a href="javascript:;">删除</a>')
+                li.slideDown(200, function () {
+                    $('.demo-03 textarea').val("");
+                    $('.demo-03 button').prop('disabled', true);
+                })
+            }
+        })
+        $('.demo-03 ul').on('click', 'a', function () {
+            $(this).parent().slideUp(function () {
+                $(this).remove();
+            })
+        })
+    </script>
+</div>
+
+</body>
+</html>

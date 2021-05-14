@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid;
+            text-align: center;
+            border-collapse: collapse;
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        thead {
+            background-color: #ccc;
+        }
+
+        th {
+            margin: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        div {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-color: deeppink;
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var div = document.querySelector('div');
+    document.addEventListener('mousemove', function (e) {
+        var x = e.pageX;
+        var y = e.pageY;
+        div.style.top = y -10 + 'px';
+        div.style.left = x -10 + 'px';
+
+    })
+</script>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>科目</th>
+        <th>分数</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    </tr>
+    </tbody>
+
+    <script>
+        var data = [{
+            name: 'ccc',
+            subject: 'math',
+            score: 100
+        }, {
+            name: 'bbb',
+            subject: 'math',
+            score: 12
+        }, {
+            name: 'yyy',
+            subject: 'math',
+            score: 80
+        }]
+
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < data.length; i += 1) {
+            var tr = document.createElement('tr');
+            for (var k in data[i]) {
+                var td = document.createElement('td');
+                td.innerHTML = data[i][k];
+                tr.append(td);
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.append(td);
+            tbody.append(tr);
+        }
+        var a = document.querySelectorAll('a');
+        for (var i = 0; i < a.length; i += 1) {
+            a[i].onclick = function () {
+                tbody.removeChild(this.parentNode.parentNode);
+            }
+        }
+    </script>
+</table>
+</body>
+</html>

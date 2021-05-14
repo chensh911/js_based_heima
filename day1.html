@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .adv {
+            width: 300px;
+            height: 500px;
+            position: relative;
+        }
+        .adv img {
+            display: block;
+            width: 300px;
+            height: 500px;
+        }
+        .adv span {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: beige;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="adv">
+    <img src="ad.jpeg" alt="">
+    <span>关闭</span>
+</div>
+
+<script>
+    var box = document.getElementsByClassName('adv')[0];
+    var close = document.querySelector('span');
+    close.onclick = function () {
+        box.style.display = 'none';
+    }
+</script>
+
+
+<button>开关灯</button>
+<script>
+    var flag = 1;
+    var btn = document.querySelector('button');
+    btn.onclick = function () {
+        if (flag === 1) {
+            flag = 0;
+            document.body.style.backgroundColor = 'pink';
+        } else {
+            flag = 1;
+            document.body.style.backgroundColor = 'white';
+        }
+    }
+</script>
+<input type="text" value="用户名">
+<script>
+    var text = document.getElementsByTagName('input')[0];
+    text.onclick = function () {
+        if (this.value == '用户名') {
+            this.value = '';
+        }
+        this.style.outlineColor = 'hotpink';
+    }
+    text.onblur = function () {
+        if (this.value === '') {
+            this.value = '用户名';
+        }
+    }
+</script>
+</body>
+</html>

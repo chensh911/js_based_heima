@@ -1,0 +1,143 @@
+@media screen and (max-device-width: 620px) {
+    section {
+        width: 96%;
+        padding: 0 2%;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    section {
+        width: 600px;
+        padding: 0 10px;
+    }
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section {
+    position: relative;
+    margin: 0 auto;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #cdcdcd;
+}
+
+header {
+    background-color: #323232;
+    height: 50px;
+}
+
+a {
+    font-size: 14px;
+    color: #999;
+    text-decoration: none;
+}
+
+header label {
+    float: left;
+    color: #DDD;
+    font-size: 24px;
+    line-height: 50px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+
+}
+
+input:focus {
+    outline: none;
+}
+
+header input {
+    float: right;
+    margin-top: 12px;
+    width: 59%;
+    padding-left: 10px;
+    height: 24px;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, .1) inset;
+}
+
+
+footer {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+}
+
+.doing-count, .finish-count {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: inline-block;
+    padding: 0 5px;
+    height: 20px;
+    border-radius: 20px;
+    background: #E6E6FA;
+    line-height: 22px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+li {
+    height: 32px;
+    line-height: 32px;
+    background: #fff;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0 45px;
+    border-radius: 3px;
+    border-left: 5px solid #629A9C;
+}
+
+ul li {
+    opacity: 0.5;
+    border-left: 5px solid #323232;
+}
+
+li input {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+li p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+li a {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    border-radius: 14px;
+    border: 6px double #FFF;
+    background: #CCC;
+    line-height: 14px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}

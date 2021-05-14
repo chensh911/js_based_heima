@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content {
+            position: relative;
+            display: block;
+            background-color: palegoldenrod;
+            width: 150px;
+            margin-top: 10px;
+            box-shadow: #cccccc 2px 2px 5px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<label>
+    <input type="text">
+</label>
+<div class="content"></div>
+<script>
+    var search = document.querySelector('input');
+    var content = document.querySelector('.content');
+    document.addEventListener('keyup', function (e) {
+        if (e.key === 's') {
+            search.focus();
+        }
+    })
+    search.addEventListener('keyup', function (e) {
+        if (search.value == '') {
+            content.style.display = 'none';
+        } else {
+            content.innerHTML = search.value;
+            content.style.display = 'block';
+        }
+    })
+</script>
+
+<button>发送</button>
+<script>
+    var button = document.querySelector('button');
+    var timer = null;
+    button.addEventListener('click', function () {
+        button.disabled = true;
+        var time = 3;
+        timer = setInterval(function () {
+            if (time == 0) {
+                clearInterval(timer)
+                button.disabled = false;
+                time = 3;
+                button.innerHTML = '发送';
+            } else {
+                button.innerHTML = '还要' + time + '秒';
+                time--;
+            }
+        }, 1000);
+    })
+</script>
+
+<form action="login.html">
+用户名：<input type="text" name="username">
+    <input type="submit" value="登陆">
+</form>
+</body>
+</html>

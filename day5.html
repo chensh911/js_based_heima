@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 20px auto;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.5);
+            display: none;
+        }
+        .info {
+            position: fixed;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 250px;
+            background-color: #fff;
+            display: none;
+        }
+        .info h4 {
+            margin: 0;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .info button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="demo"></div>
+<script>
+    div = document.querySelector('div');
+    div.addEventListener('mousemove', function (e) {
+        var x = e.pageX - div.offsetLeft;
+        var y = e.pageY - div.offsetTop;
+        div.innerHTML = '宽为：' + x + ' 高为：' + y;
+    })
+</script>
+
+
+<button id="login">点击登录</button>
+<div class="mask"></div>
+<div class="info">
+    <h4>欢迎你！</h4>
+    <button id="close">关闭</button>
+</div>
+<div class="close"></div>
+
+<script>
+    var login = document.querySelector('#login');
+    var close = document.querySelector('#close');
+    var title = document.querySelector('h4');
+    var mask = document.querySelector('.mask');
+    var info = document.querySelector('.info');
+    login.addEventListener('click', function () {
+        mask.style.display = 'block';
+        info.style.display = 'block';
+    })
+
+    close.addEventListener('click', function () {
+        mask.style.display = 'none';
+        info.style.display = 'none';
+    })
+
+    title.addEventListener('mousedown', function (e) {
+        var x = e.pageX - info.offsetLeft;
+        var y = e.pageY - info.offsetTop;
+        document.addEventListener('mousemove', move);
+        function move(e) {
+            console.log(e.pageX - x);
+            info.style.left = (e.pageX - x) + 'px';
+            info.style.top = (e.pageY - y) + 'px';
+        }
+        document.addEventListener('mouseup', function () {
+            document.removeEventListener('mousemove', move);
+        })
+    })
+</script>
+</body>
+</html>
